@@ -20,6 +20,7 @@ def get_team_logo(team, scale=0.8):
     return img
 
 alleged_odds_2019_present = np.array([14.0, 14.0, 14.0, 12.5, 10.5, 9.0, 7.5, 6.0, 4.5, 3.0, 2.0, 1.5, 1.0, 0.5]) / 100
+#Source for this years odds: https://sports.yahoo.com/nba/article/nba-draft-lottery-2025-date-time-no-1-odds-and-what-to-know-for-the-cooper-flagg-sweepstakes-171018514.html
 alleged_odds_2025_modified = np.array([14.0, 14.0, 14.0, 12.5, 10.5, 9.0, 7.5, 6.0, 3.8, 3.7, 1.8, 1.7, 0.8, 0.7]) / 100
 
 years_dict = {
