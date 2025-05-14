@@ -34,8 +34,8 @@ years_dict = {
 for year_of_interest in years_dict:
     assert np.isclose(sum(years_dict[year_of_interest]['alleged_odds']),1.0)
     alleged_odds_indices = np.arange(len(years_dict[year_of_interest]['alleged_odds']))
-    # for num_picks_included in [1,2,3,4]:
-    for num_picks_included in [3]:
+    for num_picks_included in [1,2,3,4]:
+    # for num_picks_included in [3]:
         perms = list(permutations(alleged_odds_indices, num_picks_included))
         num_outcomes = len(perms)
         perm_dict_list = [{'indices':p, 'odds_list':[years_dict[year_of_interest]['alleged_odds'][idx] for idx in p]} for p in permutations(alleged_odds_indices, num_picks_included)]
@@ -75,11 +75,17 @@ for year_of_interest in years_dict:
 
         filtered_df = permutations_df[permutations_df['x_label'].notna()]
 
+        # print_list = '['
         for i, row in filtered_df.iterrows():
             teams = []
             for team_index in row['indices']:
                 teams.append(years_dict[year_of_interest]['team_odds_order'][team_index])
             print(f"Cumulative {row['x_label']} probability permutation: {teams}")
+            # print_list = print_list + f"{row['likelihood']}, "
+        # print_list = print_list + ']'
+        # print(print_list)
+        # continue
+        
 
         highlight_indices = {actual_order_index:'red'}
         colors = [highlight_indices[i] if i in highlight_indices else 'skyblue' for i in permutations_df.index]
