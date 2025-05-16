@@ -7,7 +7,7 @@ import pickle
 ###### run parameters ######
 
 # sim parameters
-SIM_FOLDER = 'sims_1985to2025_100000iters' # use an existing folder name to read in data, new name to create new data
+SIM_FOLDER = 'sims_1985to2025_1M_iters' # use an existing folder name to read in data, new name to create new data
 ALL_AVAILABLE_YEARS = list(range(1985,2026)) # Every year the lottery has existed
 NUM_ITERS_TO_SIMULATE = 1000000 #one million is a lot. consider reducing
 
