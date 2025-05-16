@@ -171,7 +171,6 @@ def main():
         obs_probs_df = calculate_observed_outcome_probs(draft_lottery_history_dict)
         sim_probs_df = generate_simulated_draft_data(draft_lottery_history_dict, NUM_ITERS_TO_SIMULATE)
 
-        plot_histograms_2025(sim_probs_df) # sanity check for the generated data
         print(f"Writing simulated data to {sim_data_path}")
         if not os.path.isdir(SIM_FOLDER):
             os.mkdir(SIM_FOLDER)
@@ -180,6 +179,8 @@ def main():
         #write to csv for manual viewing later if so desired
         obs_probs_df.to_csv(os.path.join(SIM_FOLDER, 'obs_data.csv'), index=False)
         sim_probs_df.to_csv(os.path.join(SIM_FOLDER, 'sim_data.csv'), index=False)
+        plot_histograms_2025(sim_probs_df) # sanity check for the generated data
+
 
 
     #make sure sim_probs_df meets certain necessary criteria
