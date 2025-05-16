@@ -1,4 +1,4 @@
-#i didnt write this one its all chatgpt wow
+#i didnt write this one its all chatgpt. kinda crazy
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd

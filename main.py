@@ -27,7 +27,7 @@ years_dict = {
     2025: {
         'alleged_odds': alleged_odds_2025_modified,
         'team_odds_order': ['Jazz', 'Wizards', 'Hornets', 'Pelicans', 'Sixers', 'Nets', 'Raptors', 'Spurs', 'Suns', 'Blazers', 'Mavericks', 'Bulls', 'Kings', 'Hawks'],
-        'actual_draft_order': np.array([11,8,5,3]) - 1, #subtract 1 to zero-index
+        'actual_draft_lottery_outcome_order': np.array([11,8,5,3]) - 1, #subtract 1 to zero-index
     },
 }
 
@@ -54,7 +54,7 @@ for year_of_interest in years_dict:
         permutations_df = pd.DataFrame(perm_dict_list)
         permutations_df = permutations_df.sort_values(by='likelihood').reset_index(drop=True).reset_index() #add an additional col called index for convenience
         permutations_df['cdf'] = permutations_df['likelihood_percent'].cumsum()
-        matches = permutations_df[permutations_df['indices'] == tuple(years_dict[year_of_interest]['actual_draft_order'][:num_picks_included])]
+        matches = permutations_df[permutations_df['indices'] == tuple(years_dict[year_of_interest]['actual_draft_lottery_outcome_order'][:num_picks_included])]
         assert not matches.empty
         actual_order_index = matches.index[0]
         
